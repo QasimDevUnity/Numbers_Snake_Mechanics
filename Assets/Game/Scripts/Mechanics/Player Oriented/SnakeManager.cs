@@ -126,7 +126,7 @@ public class SnakeManager : MonoBehaviour
         playerController.SetNewNumber(-amount);
         
         int spawnCount = 5;
-        float baseOffset = 0.01f;
+        float baseOffset = 0.035f;
         for (int i = 0; i < spawnCount; i++)
         {
             PooledObject deadNumber = GameManager.Instance.poolManager.GetFromPool("dead_number");
@@ -139,6 +139,7 @@ public class SnakeManager : MonoBehaviour
             deadNumber.transform.position = spawnPos;
             deadNumber.transform.localScale = Vector3.one;
             deadNumber.gameObject.SetActive(true);
+            
         }
 
         UpdateFollowerNumbers();

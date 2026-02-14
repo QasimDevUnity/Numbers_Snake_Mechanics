@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         InitializeSystems();
-        HapticManager.Initialize();
+       // HapticManager.Initialize();
     }
 
     private void InitializeSystems()
