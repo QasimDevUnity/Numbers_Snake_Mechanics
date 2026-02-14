@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Events;
 
-public class NumberView : MonoBehaviour
+public class NumberViewBase : MonoBehaviour
 {
     [SerializeField] private Transform digitsParent;
     [Tooltip("For Player Specific FeedBack"),SerializeField] private CharacterType characterType;
+    public UnityEvent actionToInvokeOnIncrement;
      float digitSpacing = 0.1f;
 
     private List<PooledObject> activeDigits = new();
@@ -61,6 +63,7 @@ public class NumberView : MonoBehaviour
             {
                 AnimateDigitPopup(digitObj.transform, i * 0.05f);
             }
+            actionToInvokeOnIncrement?.Invoke();
         }
         
     }

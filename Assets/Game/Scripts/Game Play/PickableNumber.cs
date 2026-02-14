@@ -7,7 +7,7 @@ public class PickableNumber : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        var numberView = GetComponent<NumberView>();
+        var numberView = GetComponent<NumberViewBase>();
         numberView.SetValue(value);
     }
 

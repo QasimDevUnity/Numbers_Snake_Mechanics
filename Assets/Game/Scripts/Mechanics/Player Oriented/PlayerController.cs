@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 
     private GameConfig config;
     private InputManager inputManager;
-    private NumberView numberView;
+    private NumberViewBase numberViewBase;
 
     public int currentNumber = 1; // head number
 
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
      private void Start()
      {
-         numberView = GetComponent<NumberView>(); numberView.SetValue(currentNumber);
+         numberViewBase = GetComponent<NumberViewBase>(); numberViewBase.SetValue(currentNumber);
      }
 
      private void Update()
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
         
         GameManager.Instance.soundManager.PlaySFX(ReturnSfxVal(number));
         currentNumber += number;
-        numberView.SetValue(currentNumber);
+        numberViewBase.SetValue(currentNumber);
 
         // Update all follower numbers
         GameManager.Instance.snakeManager.UpdateFollowerNumbers(); 

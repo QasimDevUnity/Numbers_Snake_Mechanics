@@ -49,9 +49,9 @@ public class SnakeManager : MonoBehaviour
         int followerNumber = playerController.currentNumber - (followers.Count + 1);
         if (followerNumber < 0) followerNumber = 0;
 
-        NumberView numberView = follower.GetComponent<NumberView>();
-        if (numberView != null)
-            numberView.SetValue(followerNumber);
+        NumberViewBase numberViewBase = follower.GetComponent<NumberViewBase>();
+        if (numberViewBase != null)
+            numberViewBase.SetValue(followerNumber);
 
         // --- Track follower ---
         followers.Add(follower);
@@ -73,9 +73,9 @@ public class SnakeManager : MonoBehaviour
     {
         if (index < 0 || index >= followers.Count) return;
 
-        NumberView numberView = followers[index].GetComponent<NumberView>();
-        if (numberView != null)
-            numberView.SetValue(newValue);
+        NumberViewBase numberViewBase = followers[index].GetComponent<NumberViewBase>();
+        if (numberViewBase != null)
+            numberViewBase.SetValue(newValue);
 
         followerValues[index] = newValue;
     }
