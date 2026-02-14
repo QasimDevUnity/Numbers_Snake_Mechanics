@@ -21,10 +21,9 @@ public class NumberViewBase : MonoBehaviour
     
     
 
-    public void SetValue(int value) // the pickable numbers are sometimes inverted so their value set to customize in y rot
+    public void SetValue(int value) // no storage for tracking 
     {
         digitSpacing = GameManager.Instance.gameConfig.digitSpacing;
-        GameManager.Instance.snakeManager.totalCounting+=value;
         ClearDigits();
 
         string numberString = Mathf.Abs(value).ToString();

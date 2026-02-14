@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7330939291916126691}
-  - component: {fileID: 7357186202794144397}
   - component: {fileID: 1377096191263177825}
   - component: {fileID: 7137903771304305410}
   - component: {fileID: -439201175468082985}
@@ -35,27 +34,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &7357186202794144397
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4329862551242870985}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 0.2139307, y: 0.06703097, z: 0.03133271}
-  m_Center: {x: 0.0009789318, y: -0.0018279478, z: 0.0110917}
 --- !u!114 &1377096191263177825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b687789a731b241b12a60254e8c20a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!114 &7137903771304305410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,3 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   digitsParent: {fileID: 7330939291916126691}
+  characterType: 0
+  actionToInvokeOnIncrement:
+    m_PersistentCalls:
+      m_Calls: []
