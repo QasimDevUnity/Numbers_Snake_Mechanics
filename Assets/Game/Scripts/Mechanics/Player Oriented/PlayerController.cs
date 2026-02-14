@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
      private void Update()
      {
-        HandleMovement();
+       if(GameManager.Instance.canGameRun) HandleMovement();
      }
 
     #endregion
@@ -49,8 +49,8 @@ public class PlayerController : MonoBehaviour
 
     public void SetNewNumber(int number)
     {
-        
-        GameManager.Instance.soundManager.PlaySFX(ReturnSfxVal(number));
+        var str = number > 0 ? ReturnSfxVal(number) : "lose_point";
+        GameManager.Instance.soundManager.PlaySFX(str);
         currentNumber += number;
         numberViewBase.SetValue(currentNumber);
 
@@ -98,9 +98,17 @@ public class PlayerController : MonoBehaviour
         {
             interactable.Interact(GameManager.Instance.snakeManager);
         }
+
+        if (other.gameObject.layer == 6) // winnnig line
+        {
+
+            GameManager.Instance.WinLevel();
+            GameManager.Instance.canGameRun = false;
+        }
     }
+
     #endregion
     
-    #endregion
+        #endregion
     
 }

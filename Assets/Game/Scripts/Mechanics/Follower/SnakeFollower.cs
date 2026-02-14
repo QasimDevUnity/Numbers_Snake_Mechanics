@@ -15,12 +15,17 @@ public class SnakeFollower : MonoBehaviour
         Vector3 pos = transform.position;
         pos.y = fixedY;
         transform.position = pos;
+
+        // Remove Rigidbody if present (optimization)
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null) Destroy(rb);
     }
 
-    void Update()
+    void FixedUpdate() // Move to FixedUpdate for consistency
     {
         if (target == null) return;
 
+        if(GameManager.Instance.canGameRun == false) return;
         Vector3 direction = target.position - transform.position;
         Vector3 desiredPosition = target.position - direction.normalized * config.segmentSpacing;
 
@@ -31,7 +36,7 @@ public class SnakeFollower : MonoBehaviour
         transform.position = Vector3.Lerp(
             transform.position,
             desiredPosition,
-            config.followSpeed * Time.deltaTime
+            config.followSpeed * Time.fixedDeltaTime // Use fixedDeltaTime
         );
     }
 }

@@ -19,4 +19,4 @@ MonoBehaviour:
   followSpeed: 10.3
   segmentSpacing: 0.02
   maxFollowers: 15
-  digitSpacing: 0.04
+  digitSpacing: 0.032

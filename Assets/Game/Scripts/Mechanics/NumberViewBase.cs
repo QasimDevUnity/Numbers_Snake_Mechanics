@@ -72,9 +72,7 @@ public class NumberViewBase : MonoBehaviour
     private void AnimateDigitPopup(Transform digitTransform, float delay)
     {
    
-        Handheld.Vibrate();
-       
-        digitTransform.localScale = Vector3.zero;
+        HapticManager.CustomVibrate(40, 70);        digitTransform.localScale = Vector3.zero;
         digitTransform.DOScale(Vector3.one * 1.35f, 0.25f)
             .SetDelay(delay)
             .SetEase(Ease.OutBack)

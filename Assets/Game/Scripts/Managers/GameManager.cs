@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,11 +9,18 @@ public class GameManager : MonoBehaviour
      public GameConfig gameConfig;
 
     [Header("Core Systems")]
-     public InputManager inputManager;
+    public bool canGameRun=true;
+    public InputManager inputManager;
      public PoolManager poolManager;
      public PlayerController playerController;
      public SnakeManager snakeManager;
      public SoundManager soundManager;
+
+
+
+
+     [SerializeField] private GameObject winPanel;
+     
 
    
 
@@ -33,6 +41,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         InitializeSystems();
+        HapticManager.Initialize();
     }
 
     private void InitializeSystems()
@@ -40,5 +49,14 @@ public class GameManager : MonoBehaviour
         playerController.Initialize(gameConfig, inputManager);
     }
 
+    public void WinLevel()
+    {
+        winPanel.SetActive(true);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
 }
